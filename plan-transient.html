@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Migration & Transient Sites Flowchart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="badge" aria-hidden="true"></div>
+        <div>Migration & Transient Sites</div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+          <button class="dropbtn" type="button">
+            Introduction <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="intro-overview.html">Introduction Overview</a>
+            <a href="intro-biology.html">Species Biology</a>
+            <a href="intro-roosts.html">Roosts & Habitat</a>
+            <a href="intro-migration.html">Migration</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn" type="button">
+            Conflict Reduction Plan <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="plan-overview.html">Plan Overview</a>
+            <a href="plan-roosting.html">Roosting Problem</a>
+            <a href="plan-stigma.html">Public Stigma</a>
+            <a href="plan-transient.html">Migration & Transient Sites</a>
+            <a href="plan-tools.html">Tools & Methods</a>
+          </div>
+        </div>
+
+        <a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="card">
+      <h2>Migration & Transient Sites Flowchart</h2>
+      <p class="small">Click any box to expand the reasoning. (Scroll sideways if needed.)</p>
+
+      <!-- IMPORTANT: scroll wrapper prevents the wide chart from getting “crammed” -->
+      <div class="flow-scroll">
+  <div class="flowchart-exact transient-chart">
+    <svg class="flow-svg" viewBox="0 0 1900 820" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <marker id="arrow-transient" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--flow-line)"></path>
+        </marker>
+      </defs>
+
+      <!-- Start -> Natural -->
+      <path d="M 215 380 L 250 380 L 250 305 L 315 305"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Start -> Man-made -->
+      <path d="M 215 385 L 250 385 L 250 530 L 315 530"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Natural -> Conserve -->
+      <path d="M 505 305 L 560 305 L 560 140 L 640 140"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Man-made -> Question -->
+      <path d="M 505 530 L 560 530 L 560 615 L 645 615"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Question -> Yes -->
+      <path d="M 875 615 L 870 615 L 870 440"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Question -> No -->
+      <path d="M 760 657 L 760 730 L 930 730"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Yes -> Tourism -->
+      <path d="M 870 320 L 870 110"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Yes -> The bats are still here -->
+      <path d="M 980 380 L 1120 380 L 1120 170 L 1245 170"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Yes -> The bats have left -->
+      <path d="M 980 380 L 1120 380 L 1120 500 L 1245 500"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Still here -> Hire specialists -->
+      <path d="M 1455 170 L 1490 170"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Bats have left -> Remove material -->
+      <path d="M 1455 500 L 1490 500"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Hire specialists -> Next year -->
+      <path d="M 1740 175 L 1770 175 L 1770 340 L 1740 340"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Remove material -> Next year -->
+      <path d="M 1740 505 L 1770 505 L 1770 380 L 1740 380"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+
+      <!-- Tourism -> funding line -> still-action -->
+      <path d="M 995 58 L 1370 58"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" />
+
+      <path d="M 1370 58 L 1370 120 L 1615 120"
+            stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-transient)" />
+    </svg>
+
+    <details class="flow-node transient-start">
+      <summary>What kind of site is this?</summary>
+      <div class="reason">
+        First decide whether the roost is a natural site or a man-made site, because that changes whether the goal is conservation, monitoring, or intervention.
+      </div>
+    </details>
+
+    <details class="flow-node transient-natural">
+      <summary>Natural site</summary>
+      <div class="reason">
+        Natural sites should usually be protected. These sites can also be used for controlled education and viewing, disturbance should be minimized.
+      </div>
+    </details>
+
+    <details class="flow-node transient-manmade">
+      <summary>Man-made site</summary>
+      <div class="reason">
+        Man-made sites may create conflict if bats use buildings, bridges, or other human structures, causing maintence issues.
+      </div>
+    </details>
+
+    <details class="flow-node transient-conserve">
+      <summary>Conserve and protect</summary>
+      <div class="reason">
+        If the bats are using a natural site, the best response is usually conservation rather than removal.
+      </div>
+    </details>
+
+    <details class="flow-node transient-question">
+      <summary>Does the site need bat repelling?</summary>
+      <div class="reason">
+        Decide whether this site truly needs intervention. If the site causes major conflict, action may be needed. If not, monitoring and warning the public may be enough.
+      </div>
+    </details>
+
+    <details class="flow-node transient-yes">
+      <summary>Yes: Identify what time in the year the bats arrive and leave at this place</summary>
+      <div class="reason">
+        If you plan to intervene, timing is critical. You need to know the seasonal window when bats arrive and leave so you can avoid trapping them and plan relocation properly.
+      </div>
+    </details>
+
+    <details class="flow-node transient-no">
+      <summary>No: Identify what time in the year the bats arrive and leave at this place. Warn civilians about bat presence in the area during migration season, and monitor bat activity.</summary>
+      <div class="reason">
+        If removal is not necessary, still identify the migration period. Then warn people about bat presence, reduce unnecessary alarm, and monitor whether the site becomes a problem later.
+      </div>
+    </details>
+
+    <details class="flow-node transient-tourism">
+      <summary>Use this information to organize seasonal, local bat sightseeing educational tours</summary>
+      <div class="reason">
+        Knowing when bats arrive and leave can help schedule local bat-viewing events and educational tours. This supports both conservation awareness and community engagement, and provides economical benefits.
+      </div>
+    </details>
+
+    <details class="flow-node transient-still">
+      <summary>The bats are still here</summary>
+      <div class="reason">
+        If the bats are still occupying the site when action is needed, specialists may need to move them carefully and clean the original site to remove scent cues that bats use to locate the site.
+      </div>
+    </details>
+
+    <details class="flow-node transient-still-action">
+      <summary>Hire specialists to remove the bats to a nearby alternative roosting site and clean up the original site thoroughly</summary>
+      <div class="reason">
+        Professional removal is safer than amateur attempts. Pair removal with a nearby alternative roost so the bats are redirected rather than simply displaced. Clean to remove the scent cues, lowering chances of bats coming back
+      </div>
+    </details>
+
+    <details class="flow-node transient-left">
+      <summary>The bats have left</summary>
+      <div class="reason">
+        If the bats have already left for the season, the site can be cleaned and prepared before they return.
+      </div>
+    </details>
+
+    <details class="flow-node transient-left-action">
+      <summary>Remove bat material to a nearby alternative site, and clean up the original site thoroughly</summary>
+      <div class="reason">
+        Clean the original site thoroughly and reduce the cues that might attract bats back. If appropriate, place attractants at a more suitable nearby site.
+      </div>
+    </details>
+
+    <details class="flow-node transient-next">
+      <summary>Next year before migration season, set up bat repellents at the original site and attract bats to a new roost site</summary>
+      <div class="reason">
+        Before bats return next season, prepare the original site so it is less attractive and guide bats toward a more suitable alternative roost.
+      </div>
+    </details>
+
+    <div class="transient-profit-label">Use profit to fuel these projects</div>
+  </div>
+</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">Migration & transient sites flowchart page</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Optional: keep only one box open at a time
+    document.querySelectorAll('.transient-chart details').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          document.querySelectorAll('.transient-chart details').forEach((other) => {
+            if (other !== item) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

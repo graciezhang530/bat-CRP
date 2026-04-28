@@ -1,0 +1,599 @@
+/* =========================================================
+   style.css — Bright "Nature" Theme + Dropdown Nav + Flowcharts
+   Includes:
+   - Roosting flowchart (1600×820) positions (percent-based)
+   - Public stigma flowchart positions (1600×820) positions (percent-based)
+   - Migration/transient flowchart (1900×820) scrollable + PIXEL-perfect positions
+   ========================================================= */
+
+/* ---------- Nature theme variables ---------- */
+:root{
+  --bg: #f7f4ea;          /* warm cream */
+  --bg2:#eef6ef;          /* pale green tint */
+  --panel:#ffffff;        /* white cards */
+  --text:#1f2a1f;         /* deep forest text */
+  --muted:#4f6a4f;        /* muted green */
+  --border:#d7e3d0;       /* soft sage border */
+  --shadow: 0 14px 36px rgba(26, 40, 26, .12);
+  --radius: 18px;
+
+  --accent:#2f7d4f;       /* primary green */
+  --accent2:#7fbf6a;      /* lighter green */
+  --link:#1d6a3a;
+
+  /* Flowchart colors */
+  --flow-fill:#c7d88a;
+  --flow-stroke:#4f8cff;
+  --flow-line:#b9b9b9;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+
+  background:
+    radial-gradient(900px 520px at 10% 0%, rgba(127,191,106,.22), transparent 60%),
+    radial-gradient(900px 520px at 90% 10%, rgba(47,125,79,.18), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+a{ color: var(--link); text-decoration:none; }
+a:hover{ text-decoration: underline; }
+
+.container{ max-width: 1100px; margin: 0 auto; padding: 0 18px; }
+
+/* ---------- Top Bar + Dropdown Nav ---------- */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(247,244,234,.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding: 14px 0;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight: 820;
+  letter-spacing:.2px;
+}
+
+.badge{
+  width:34px; height:34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(47,125,79,.95), rgba(127,191,106,.85));
+  box-shadow: 0 10px 24px rgba(47,125,79,.18);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap: wrap;
+}
+
+.nav > a, .dropbtn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  transition: .18s ease;
+}
+
+.nav > a:hover, .dropbtn:hover{
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(255,255,255,.65);
+}
+
+.nav > a.active, .dropbtn.active{
+  color: var(--text);
+  border-color: rgba(47,125,79,.35);
+  background: rgba(127,191,106,.22);
+}
+
+.dropdown{ position: relative; }
+
+.dropdown-menu{
+  position: absolute;
+  top: 44px;
+  right: 0;
+  min-width: 260px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  display: none;
+}
+
+.dropdown-menu a{
+  display:block;
+  padding: 10px 10px;
+  border-radius: 12px;
+  color: var(--muted);
+  transition: .15s ease;
+}
+
+.dropdown-menu a:hover{
+  background: rgba(127,191,106,.18);
+  color: var(--text);
+}
+
+.dropdown.open .dropdown-menu{ display:block; }
+
+.caret{
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--muted);
+  transform: translateY(1px);
+}
+
+/* ---------- Page Sections ---------- */
+.hero{ padding: 34px 0 10px; }
+
+.hero-card{
+  background: rgba(255,255,255,.88);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.kicker{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.kicker span.dot{
+  width:8px; height:8px; border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 0 6px rgba(127,191,106,.22);
+}
+
+h1{ margin: 10px 0 10px; line-height:1.15; font-size: 40px; }
+@media (max-width: 520px){ h1{ font-size: 32px; } }
+
+.subtitle{ color: var(--muted); margin: 0; max-width: 70ch; }
+
+.cta-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px; }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.9);
+  color: var(--text);
+  font-weight: 720;
+  transition: .18s ease;
+  box-shadow: 0 10px 22px rgba(26,40,26,.08);
+}
+.btn:hover{ transform: translateY(-1px); border-color: rgba(47,125,79,.35); }
+
+.btn.primary{
+  background: linear-gradient(135deg, rgba(47,125,79,.95), rgba(127,191,106,.85));
+  border-color: transparent;
+  color: #f7fff7;
+}
+
+.main{ padding: 12px 0 40px; }
+
+.card{
+  background: rgba(255,255,255,.90);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin: 14px 0;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 860px){ .grid-2{ grid-template-columns: 1fr; } }
+
+.callout{
+  border: 1px solid rgba(47,125,79,.25);
+  background: rgba(127,191,106,.18);
+  padding: 14px;
+  border-radius: 16px;
+  color: var(--muted);
+}
+
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 22px 0;
+  color: var(--muted);
+  text-align:center;
+}
+
+.small{ font-size: 13px; color: var(--muted); }
+
+/* =========================================================
+   Base flowchart styles (shared)
+   ========================================================= */
+
+.flowchart-exact{
+  --W: 1600;
+  --H: 820;
+
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 16px auto 60px;
+
+  aspect-ratio: calc(var(--W) / var(--H));
+  background: #efefef;
+  border-radius: 14px;
+  overflow: visible;
+}
+
+.flow-svg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flow-node{
+  position: absolute;
+  z-index: 2;
+
+  width: 16%;
+  min-width: 210px;
+  max-width: 520px;
+}
+
+.flow-node summary{
+  list-style: none;
+  cursor: pointer;
+
+  background: var(--flow-fill);
+  color: #2c2c2c;
+
+  border: 2px solid var(--flow-stroke);
+  border-radius: 12px;
+
+  padding: 12px 12px;
+  font-size: clamp(11px, 1.0vw, 17px);
+  line-height: 1.2;
+  text-align: center;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+
+.flow-node summary::-webkit-details-marker{ display:none; }
+
+.flow-node .reason{
+  margin-top: 8px;
+  background: rgba(255,255,255,.98);
+  color: #2d2d2d;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.45;
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
+
+  max-height: 180px;
+  overflow: auto;
+}
+
+.flow-node[open]{ z-index: 6; }
+
+/* =========================================================
+   Roosting flowchart positions (1600×820)
+   Uses classes: node-start, node-natural, node-manmade, ...
+   ========================================================= */
+
+.node-start   { left: 1%;   top: 30%; width: 19%; }
+.node-natural { left: 23%;  top: 22%; width: 17%; }
+.node-manmade { left: 23%;  top: 52%; width: 17%; }
+.node-conserve{ left: 48%;  top: 10%; width: 19%; }
+.node-question{ left: 48%;  top: 62%; width: 19%; }
+.node-tourism { left: 72%;  top: 7%;  width: 23%; }
+.node-yes     { left: 63%;  top: 41%; width: 23%; }
+.node-no      { left: 62%;  top: 76%; width: 26%; }
+
+.profit-label{
+  position: absolute;
+  z-index: 2;
+  right: 0.5%;
+  top: 52%;
+  transform: translateY(-50%);
+  width: 14%;
+  min-width: 160px;
+
+  color: #2f2f2f;
+  font-size: clamp(12px, 1.1vw, 20px);
+  line-height: 1.15;
+  text-align: right;
+  pointer-events: none;
+}
+
+/* =========================================================
+   Public stigma flowchart positions (1600×820)
+   ========================================================= */
+
+.stigma-chart .stigma-top    { left: 41%; top: 6%;  width: 18%; }
+.stigma-chart .stigma-left   { left: 3%;  top: 26%; width: 20%; }
+.stigma-chart .stigma-right  { left: 77%; top: 26%; width: 20%; }
+.stigma-chart .stigma-bottom { left: 41%; top: 62%; width: 18%; }
+
+.stigma-profit-label{
+  position: absolute;
+  z-index: 2;
+  left: 36%;
+  top: 52%;
+  width: 28%;
+  text-align: center;
+  color: #2f2f2f;
+  font-size: clamp(12px, 1.2vw, 20px);
+  line-height: 1.15;
+  pointer-events: none;
+}
+
+/* =========================================================
+   Migration / transient sites flowchart (1900×820)
+   Scrollable + fixed pixel positions + fixed box heights
+   ========================================================= */
+
+.flow-scroll{
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 10px;
+}
+
+.flowchart-exact.transient-chart{
+  width: 1900px;
+  max-width: none;
+  aspect-ratio: 1900 / 820;
+  position: relative;
+}
+
+/* override generic widths for this dense chart */
+.transient-chart .flow-node{
+  min-width: 0;
+  max-width: none;
+}
+
+/* important: fixed-height centered text */
+.transient-chart .flow-node summary{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* --- Fixed box positions + heights --- */
+
+.transient-chart .transient-start{
+  left: 20px;
+  top: 340px;
+  width: 195px;
+  height: 80px;
+}
+
+.transient-chart .transient-natural{
+  left: 315px;
+  top: 275px;
+  width: 190px;
+  height: 60px;
+}
+
+.transient-chart .transient-manmade{
+  left: 315px;
+  top: 500px;
+  width: 190px;
+  height: 60px;
+}
+
+.transient-chart .transient-conserve{
+  left: 640px;
+  top: 110px;
+  width: 210px;
+  height: 60px;
+}
+
+.transient-chart .transient-question{
+  left: 645px;
+  top: 573px;
+  width: 230px;
+  height: 84px;
+}
+
+.transient-chart .transient-yes{
+  left: 760px;
+  top: 320px;
+  width: 220px;
+  height: 120px;
+}
+
+.transient-chart .transient-no{
+  left: 930px;
+  top: 660px;
+  width: 300px;
+  height: 140px;
+}
+
+.transient-chart .transient-tourism{
+  left: 745px;
+  top: 5px;
+  width: 250px;
+  height: 105px;
+}
+
+.transient-chart .transient-still{
+  left: 1245px;
+  top: 140px;
+  width: 210px;
+  height: 60px;
+}
+
+.transient-chart .transient-still-action{
+  left: 1490px;
+  top: 120px;
+  width: 250px;
+  height: 110px;
+}
+
+.transient-chart .transient-left{
+  left: 1245px;
+  top: 470px;
+  width: 210px;
+  height: 60px;
+}
+
+.transient-chart .transient-left-action{
+  left: 1490px;
+  top: 450px;
+  width: 250px;
+  height: 110px;
+}
+
+.transient-chart .transient-next{
+  left: 1740px;
+  top: 290px;
+  width: 160px;
+  height: 140px;
+}
+
+.transient-profit-label{
+  position: absolute;
+  z-index: 2;
+  left: 1110px;
+  top: 36px;
+  width: 300px;
+  text-align: center;
+  color: #2f2f2f;
+  font-size: 12px;
+  line-height: 1.15;
+  pointer-events: none;
+}
+
+/* prettier scrollbar */
+.flow-scroll::-webkit-scrollbar{
+  height: 10px;
+}
+.flow-scroll::-webkit-scrollbar-thumb{
+  background: rgba(47,125,79,.35);
+  border-radius: 999px;
+}
+.flow-scroll::-webkit-scrollbar-track{
+  background: rgba(0,0,0,.06);
+  border-radius: 999px;
+}
+
+/* =========================================================
+   Mobile fallback: stack nodes instead of absolute flowcharts
+   ========================================================= */
+@media (max-width: 900px){
+  .flowchart-exact{
+    aspect-ratio: auto;
+    background: transparent;
+  }
+
+  .flow-svg,
+  .profit-label,
+  .stigma-profit-label,
+  .transient-profit-label{
+    display: none;
+  }
+
+  .flow-node{
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-bottom: 12px;
+  }
+
+  .flow-node summary{
+    font-size: 18px !important;
+    padding: 12px 12px !important;
+  }
+
+  .flow-scroll{
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .flowchart-exact.transient-chart{
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* Hero image styling */
+.hero-img{
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 14px 0 10px;
+  background: rgba(255,255,255,.6);
+}
+
+/* Option A: show the whole image (no crop) */
+.hero-img.contain{
+  max-height: 100px;      /* change to 500px if you want it bigger */
+  object-fit: contain;
+}
+
+/* Option B: fill banner (will crop) */
+.hero-img.cover{
+  height: 320px;
+  object-fit: cover;
+}
+/* FORCE the home hero image to not be huge */
+.hero-img{
+  display: block;
+  width: 100% !important;
+  max-width: 700px !important;   /* controls how wide it can be */
+  height: auto !important;
+  max-height: 260px !important;  /* controls how tall it can be */
+  object-fit: contain !important;
+  margin: 14px auto 10px !important; /* centers it */
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}

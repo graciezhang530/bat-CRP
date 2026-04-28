@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roosting Flowchart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="badge"></div>
+        <div>Roosting Problem</div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+          <button class="dropbtn" type="button">
+            Introduction <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="intro-overview.html">Introduction Overview</a>
+            <a href="intro-biology.html">Species Biology</a>
+            <a href="intro-roosts.html">Roosts & Habitat</a>
+            <a href="intro-migration.html">Migration</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn" type="button">
+            Conflict Reduction Plan <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="plan-overview.html">Plan Overview</a>
+            <a href="plan-roosting.html">Roosting Problem</a>
+            <a href="plan-stigma.html">Public Stigma</a>
+            <a href="plan-transient.html">Migration & Transient Sites</a>
+            <a href="plan-tools.html">Tools & Methods</a>
+          </div>
+        </div>
+
+        <a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="card">
+      <h2>Roosting Conflict Flowchart</h2>
+      <p class="small">Click any box to expand the reasoning.</p>
+
+      <div class="flowchart-exact">
+        <!-- connector lines -->
+        <svg class="flow-svg" viewBox="0 0 1600 820" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#bbbbbb"></path>
+            </marker>
+          </defs>
+
+          <!-- Start -> Natural -->
+          <path d="M 260 280 L 300 280 L 300 230 L 360 230"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Start -> Man-made -->
+          <path d="M 260 330 L 300 330 L 300 470 L 360 470"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Natural -> Conserve -->
+          <path d="M 610 230 L 650 230 L 650 140 L 770 140"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Man-made -> Question -->
+          <path d="M 610 500 L 700 500 L 700 560 L 770 560"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Conserve -> Tourism -->
+          <path d="M 1030 170 L 1150 170"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Question -> Yes -->
+          <path d="M 1020 610 L 1120 610 L 1120 360"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Question -> No -->
+          <path d="M 900 670 L 900 770 L 1180 770"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Tourism -> Yes (outer loop) -->
+          <path d="M 1520 170 L 1570 170 L 1570 370 L 1380 370"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Tourism -> Profit text area -->
+          <path d="M 1520 220 L 1570 220 L 1570 560"
+                stroke="#bbbbbb" stroke-width="3" fill="none" />
+
+          <!-- Profit line down to No -->
+          <path d="M 1570 560 L 1570 770 L 1460 770"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+          <!-- Conserve upper loop -->
+          <path d="M 900 120 L 900 70 L 1480 70 L 1480 120"
+                stroke="#bbbbbb" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+        </svg>
+
+        <!-- nodes -->
+        <details class="flow-node node-start">
+          <summary>What kind of site is this?</summary>
+          <div class="reason">
+            First identify whether the roost is in a natural habitat or a man-made structure, because the best management strategy depends on site type.
+          </div>
+        </details>
+
+        <details class="flow-node node-natural">
+          <summary>Natural site</summary>
+          <div class="reason">
+            Natural roosts are usually ecologically important, so the default strategy is protection rather than removal.
+          </div>
+        </details>
+
+        <details class="flow-node node-manmade">
+          <summary>Man-made site</summary>
+          <div class="reason">
+            Man-made sites can create direct conflict with people through guano, smell, noise, and public concern.
+          </div>
+        </details>
+
+        <details class="flow-node node-conserve">
+          <summary>Conserve and protect</summary>
+          <div class="reason">
+            If the site is natural, prioritize conservation, reduce disturbance, and preserve their natural habitat when possible.
+          </div>
+        </details>
+
+        <details class="flow-node node-tourism">
+          <summary>Use in tourism to conserve bat populations while providing social and economic benefits</summary>
+          <div class="reason">
+            Protected bat sites can support ecotourism and education, which can help fund conservation and improve public attitudes.
+          </div>
+        </details>
+
+        <details class="flow-node node-question">
+          <summary>Is the site in need to repelling the bats?</summary>
+          <div class="reason">
+            If a man-made site creates major nuisance or safety issues, then active intervention may be needed. If conflict is low, monitoring and warning people may be enough.
+          </div>
+        </details>
+
+        <details class="flow-node node-yes">
+          <summary>Yes: Use a form of bat repellant while guiding them to a near by alternative site</summary>
+          <div class="reason">
+            If intervention is necessary, combine <a href="plan-tools.html">exclusion using repellants</a> with an alternative roost so the bats are redirected rather than simply displaced.
+          </div>
+        </details>
+
+        <details class="flow-node node-no">
+          <summary>No: Warn civilians about bat presence in the area, check on the sites once in a time period</summary>
+          <div class="reason">
+            If the site does not require removal, inform the public using signs, reduce panic, and use periodic monitoring to prevent future problems.
+          </div>
+        </details>
+
+        <div class="profit-label">Use profit to fuel these projects</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">Roosting flowchart page</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // optional: only keep one box open at a time
+    document.querySelectorAll('.flowchart-exact details').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          document.querySelectorAll('.flowchart-exact details').forEach((other) => {
+            if (other !== item) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

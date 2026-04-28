@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Public Stigma Flowchart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="badge" aria-hidden="true"></div>
+        <div>Public Stigma</div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+          <button class="dropbtn" type="button">
+            Introduction <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="intro-overview.html">Introduction Overview</a>
+            <a href="intro-biology.html">Species Biology</a>
+            <a href="intro-roosts.html">Roosts & Habitat</a>
+            <a href="intro-migration.html">Migration</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn" type="button">
+            Conflict Reduction Plan <span class="caret"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="plan-overview.html">Plan Overview</a>
+            <a href="plan-roosting.html">Roosting Problem</a>
+            <a href="plan-stigma.html">Public Stigma</a>
+            <a href="plan-transient.html">Migration & Transient Sites</a>
+            <a href="plan-tools.html">Tools & Methods</a>
+          </div>
+        </div>
+
+        <a href="sources.html">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="card">
+      <h2>Public Stigma Flowchart</h2>
+      <p class="small">Click any box to expand the reasoning.</p>
+
+      <div class="flowchart-exact stigma-chart">
+        <!-- Connector lines -->
+        <svg class="flow-svg" viewBox="0 0 1600 820" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <marker id="arrow-stigma" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--flow-line)"></path>
+            </marker>
+          </defs>
+
+          <!-- Top center to left -->
+          <path d="M 800 210 L 260 210"
+                stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-stigma)" />
+
+          <!-- Top center to right -->
+          <path d="M 800 210 L 1340 210"
+                stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-stigma)" />
+
+          <!-- Top center down to pamphlets -->
+          <path d="M 800 240 L 800 520"
+                stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-stigma)" />
+
+          <!-- “Use profit...” line (center text line) -->
+          <path d="M 260 455 L 1340 455"
+                stroke="var(--flow-line)" stroke-width="3" fill="none" />
+
+          <!-- Left return arrow up (profit loop to left box) -->
+          <path d="M 260 455 L 260 330"
+                stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-stigma)" />
+
+          <!-- Right return arrow down then to pamphlets (profit loop to pamphlets) -->
+          <path d="M 1340 330 L 1340 700 L 800 700 L 800 640"
+                stroke="var(--flow-line)" stroke-width="3" fill="none" marker-end="url(#arrow-stigma)" />
+        </svg>
+
+        <!-- Nodes (clickable) -->
+        <details class="flow-node stigma-top">
+          <summary>Ways to decrease Public Stigma</summary>
+          <div class="reason">
+            Public stigma often comes from fear and misinformation. The goal is to replace myths with simple, accurate,
+            easy-to-remember guidance so people respond safely and don’t harm bats.
+          </div>
+        </details>
+
+        <details class="flow-node stigma-left">
+          <summary>Post videos on platforms such as TikTok for educational purposes</summary>
+          <div class="reason">
+            Short videos reach lots of people quickly. They’re good for “Myth vs Fact” content, safe-response steps
+            (“don’t touch bats”), and explaining why bats are helpful (insect control).
+          </div>
+        </details>
+
+        <details class="flow-node stigma-right">
+          <summary>Sell merchandise that has interesting graphics and educational phrases</summary>
+          <div class="reason">
+            Merch can spread positive messages and normalize bats. If you do it, keep the messaging simple and factual,
+            and use profits to support education or mitigation projects.
+          </div>
+        </details>
+
+        <details class="flow-node stigma-bottom">
+          <summary>Handout pamphlets about how to correctly view bats</summary>
+          <div class="reason">
+            Pamphlets/signage work well at places where conflict happens (bridges, parks, schools). Include:
+            (1) do not handle bats, (2) who to call if a bat is inside, (3) fun bat facts to reduce fear,
+            and (4) why bats matter to the ecosystem.
+          </div>
+        </details>
+
+        <!-- Center label like your diagram -->
+        <div class="stigma-profit-label">Use profit to fuel these projects</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">Public stigma flowchart page</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Optional: keep only one box open at a time
+    document.querySelectorAll('.stigma-chart details').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          document.querySelectorAll('.stigma-chart details').forEach((other) => {
+            if (other !== item) other.removeAttribute('open');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
